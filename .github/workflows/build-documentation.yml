@@ -26,6 +26,14 @@ jobs:
         repository: deepakunni3/nmdc-metadata
         persist-credentials: false
 
+    - name: Setup Python Environment
+      uses: actions/setup-python@v2
+      with:
+        # Version range or exact version of a Python version to use, using SemVer's version range syntax.
+        python-version: 3.7
+        # The target architecture (x86, x64) of the Python interpreter.
+        # architecture: x64 # optional
+
     - name: Install and Build
       run: |
         python -v
