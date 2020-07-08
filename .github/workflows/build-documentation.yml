@@ -49,7 +49,7 @@ jobs:
       run: |
         pip install pipenv
         # make
-        echo "This is a test file" > Hello.md
+        echo "This is a test file" >> Hello-clone.md
         echo "$EMAIL"
         echo "$NAME"
         git config --global user.email "$EMAIL"
