@@ -51,13 +51,13 @@ jobs:
         sudo apt-get install -y openjdk-8-jre
         wget https://github.com/joelittlejohn/jsonschema2pojo/releases/download/jsonschema2pojo-1.0.2/jsonschema2pojo-1.0.2.tar.gz
         tar -xvzf jsonschema2pojo-1.0.2.tar.gz
-        export PATH=$PATH:`pwd`/jsonschema2pojo-1.0.2/bin
         pip install pipenv
 
     - name: Build and generate artifacts
       run: |
-        echo "This is a test file" >> Hello-clone.md
+        export PATH=$PATH:`pwd`/jsonschema2pojo-1.0.2/bin
         jsonschema2pojo --help
+        echo "This is a test file" >> Hello-clone.md
         echo "$EMAIL"
         echo "$NAME"
         git config --global user.email "$EMAIL"
