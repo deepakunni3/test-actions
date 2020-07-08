@@ -47,16 +47,17 @@ jobs:
 
     - name: Setup build environment
       run: |
-        sudo apt-get install build-essential
-        sudo apt-get install openjdk-8-jre
-        /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
-        echo "Trying to install jsonschema2pojo via brew"
-        brew install jsonschema2pojo
+        sudo apt-get install -y build-essential wget curl
+        sudo apt-get install -y openjdk-8-jre
+        wget https://github.com/joelittlejohn/jsonschema2pojo/releases/download/jsonschema2pojo-1.0.2/jsonschema2pojo-1.0.2.tar.gz
+        tar -xvzf jsonschema2pojo-1.0.2.tar.gz
+        export PATH=$PATH:`pwd`/jsonschema2pojo-1.0.2/bin
         pip install pipenv
 
     - name: Build and generate artifacts
       run: |
         echo "This is a test file" >> Hello-clone.md
+        jsonschema2pojo --help
         echo "$EMAIL"
         echo "$NAME"
         git config --global user.email "$EMAIL"
