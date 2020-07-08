@@ -48,7 +48,7 @@ jobs:
       run: |
         pip install pipenv
         # make
-        cat "This is a test file" > Hello.md
+        echo "This is a test file" > Hello.md
         git add --all
         git commit -m "Update artifacts"
 
