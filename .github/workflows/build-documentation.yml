@@ -48,6 +48,7 @@ jobs:
     - name: Install and Build
       run: |
         /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
+        echo 'export PATH="/home/linuxbrew/.linuxbrew/opt/openjdk/bin:$PATH"' >> ~/.bash_profile
         brew install jsonschema2pojo
         pip install pipenv
         # make
