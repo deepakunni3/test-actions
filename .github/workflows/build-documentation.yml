@@ -47,8 +47,9 @@ jobs:
 
     - name: Install and Build
       run: |
+        apt-get install openjdk-8-jre
         /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
-        echo 'export PATH="/home/linuxbrew/.linuxbrew/opt/openjdk/bin:$PATH"' >> ~/.bash_profile
+        echo "Trying to install jsonschema2pojo via brew"
         brew install jsonschema2pojo
         pip install pipenv
         # make
