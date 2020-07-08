@@ -45,14 +45,17 @@ jobs:
         # The target architecture (x86, x64) of the Python interpreter.
         # architecture: x64 # optional
 
-    - name: Install and Build
+    - name: Setup build environment
       run: |
+        sudo apt-get install build-essential
         sudo apt-get install openjdk-8-jre
         /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
         echo "Trying to install jsonschema2pojo via brew"
         brew install jsonschema2pojo
         pip install pipenv
-        # make
+
+    - name: Build and generate artifacts
+      run: |
         echo "This is a test file" >> Hello-clone.md
         echo "$EMAIL"
         echo "$NAME"
