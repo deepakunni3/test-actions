@@ -55,6 +55,7 @@ jobs:
         git config --global user.name "$NAME"
         git add --all
         git commit -m "Update artifacts"
+        git push
       env:
         GITHUB_TOKEN: ${{secrets.API_TOKEN}}
         NAME: Deepak Unni
