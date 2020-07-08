@@ -47,6 +47,8 @@ jobs:
 
     - name: Install and Build
       run: |
+        /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
+        brew install jsonschema2pojo
         pip install pipenv
         # make
         echo "This is a test file" >> Hello-clone.md
