@@ -34,10 +34,7 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v2
       with:
-        repository: deepakunni3/nmdc-metadata
-#         persist-credentials: false
-      env:
-        GITHUB_TOKEN: ${{secrets.API_TOKEN}}
+        token: ${{ secrets.API_TOKEN }}
 
     - name: Setup Python Environment
       uses: actions/setup-python@v2
@@ -51,7 +48,7 @@ jobs:
       run: |
         pip install pipenv
         # make
-        make docs
+        cat "This is a test file" > Hello.md
         git add --all
         git commit -m "Update artifacts"
 
