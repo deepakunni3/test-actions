@@ -49,13 +49,17 @@ jobs:
         pip install pipenv
         # make
         echo "This is a test file" > Hello.md
-        
-        git remote set-url --push origin https://$USERNAME:$GITHUB_TOKEN@github.com/deepakunni3/test-actions
+        echo "$EMAIL"
+        echo "$NAME"
+        git config --global user.email "$EMAIL"
+        git config --global user.name "$NAME"
         git add --all
         git commit -m "Update artifacts"
       env:
         GITHUB_TOKEN: ${{secrets.API_TOKEN}}
-        USERNAME: deepakunni3
+        NAME: Deepak Unni
+        EMAIL: deepak.unni3@gmail.com
+
 #     - name: Deploy
 #       uses: JamesIves/github-pages-deploy-action@releases/v3
 #       with:
